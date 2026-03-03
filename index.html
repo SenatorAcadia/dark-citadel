@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Severin Mortis - Character Sheet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --parchment: #e8d5b5;
+            --ink: #2b2622;
+            --magic-green: #4ade80;
+            --dark-border: #4a3f35;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: var(--ink);
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        #sheet {
+            background-color: var(--parchment);
+            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png'); /* Light texture */
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            border: 12px double var(--dark-border);
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 3px solid var(--ink);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .identity input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px dashed var(--ink);
+            font-family: 'MedievalSharp', cursive;
+            font-size: 1.2rem;
+            color: var(--ink);
+            width: 100%;
+        }
+
+        .top-stats {
+            text-align: right;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+        }
+
+        .top-stats input {
+            width: 40px;
+            background: transparent;
+            border: 1px solid var(--dark-border);
+            text-align: center;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 20px;
+        }
+
+        /* Stats & Traits */
+        .box {
+            border: 2px solid var(--dark-border);
+            padding: 10px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stat-circle {
+            border: 2px solid var(--ink);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Health Tracker */
+        .hp-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+        }
+
+        .hp-btn {
+            background: var(--ink);
+            color: var(--parchment);
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .hp-btn:hover { background: #444; }
+
+        /* Traits Grid */
+        .traits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .trait-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.05);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        /* Spell Points */
+        .spell-points {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .crystal-checkbox {
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border: 2px solid var(--ink);
+            transform: rotate(45deg);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .crystal-checkbox:checked {
+            background-color: var(--magic-green);
+            box-shadow: 0 0 10px var(--magic-green);
+        }
+
+        /* Notes */
+        textarea {
+            width: 100%;
+            height: 100px;
+            background: rgba(255,255,255,0.3);
+            border: 1px solid var(--dark-border);
+            font-family: inherit;
+            resize: none;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .ability-text {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            border-left: 3px solid var(--dark-border);
+            padding-left: 8px;
+        }
+
+        label { font-weight: bold; font-family: 'Cinzel'; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+<div id="sheet">
+    <!-- Header -->
+    <div class="header">
+        <div class="identity">
+            <h1 style="font-size: 2.5rem;">Severin Mortis</h1>
+            <p>Level 1 Human Deathweaver</p>
+        </div>
+        <div class="top-stats">
+            <div>GOLD <input type="number" id="gold" value="0"></div>
+            <div>NOTORIETY <input type="number" id="notoriety" value="0"></div>
+            <div>MINIONS <input type="number" id="minions" value="0"></div>
+        </div>
+    </div>
+
+    <div class="main-grid">
+        <!-- Left Column: Combat & Traits -->
+        <div>
+            <div class="box">
+                <h3>Combat Stats</h3>
+                <div class="hp-controls">
+                    <label>HP</label>
+                    <button class="hp-btn" onclick="changeHP(-1)">-</button>
+                    <span id="currentHP">10</span> / <span id="maxHP">10</span>
+                    <button class="hp-btn" onclick="changeHP(1)">+</button>
+                </div>
+                <div style="margin-top:15px; display: flex; gap: 15px;">
+                    <div><label>ATK</label><br><input type="text" id="atk" value="+3" style="width:30px"></div>
+                    <div><label>DEF</label><br><input type="text" id="def" value="10" style="width:30px"></div>
+                    <div><label>DMG</label><br><input type="text" id="dmg" value="+2" style="width:30px"></div>
+                </div>
+            </div>
+
+            <h3>Traits</h3>
+            <div class="traits-grid box">
+                <div class="trait-item"><span>STR</span><input type="number" id="str" value="-1"></div>
+                <div class="trait-item"><span>INT</span><input type="number" id="int" value="2"></div>
+                <div class="trait-item"><span>DEX</span><input type="number" id="dex" value="-1"></div>
+                <div class="trait-item"><span>WIS</span><input type="number" id="wis" value="0"></div>
+                <div class="trait-item"><span>CON</span><input type="number" id="con" value="1"></div>
+                <div class="trait-item"><span>CHA</span><input type="number" id="cha" value="-2"></div>
+            </div>
+
+            <h3>Spell Points</h3>
+            <div class="box spell-points">
+                <input type="checkbox" id="sp1" class="crystal-checkbox">
+                <input type="checkbox" id="sp2" class="crystal-checkbox">
+                <span style="font-size: 0.8rem; margin-left: 10px;">(Regain on Rest)</span>
+            </div>
+        </div>
+
+        <!-- Right Column: Abilities & Notes -->
+        <div>
+            <h3>Abilities & Spells</h3>
+            <div class="box">
+                <div class="ability-text"><strong>Arcane Adept:</strong> +2 to all non-combat magic rolls.</div>
+                <div class="ability-text"><strong>Arcane Knowledge:</strong> Reroll Int check (1/page).</div>
+                <div class="ability-text"><strong>Blight Touch (1pt):</strong> +d4 to Atk for page.</div>
+                <div class="ability-text"><strong>Bone Shield (1pt):</strong> +d4 to Def for page.</div>
+            </div>
+
+            <h3>Quest Notes & Loot</h3>
+            <textarea id="notes" placeholder="Track items, temporary effects (like Spell Effectiveness), and objectives..."></textarea>
+            
+            <h3 style="margin-top:15px">Loot</h3>
+            <textarea id="loot" style="height: 60px;" placeholder="Items found..."></textarea>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- PERSISTENT STORAGE ---
+    const fields = [
+        'gold', 'notoriety', 'minions', 'atk', 'def', 'dmg', 
+        'str', 'int', 'dex', 'wis', 'con', 'cha', 
+        'sp1', 'sp2', 'notes', 'loot'
+    ];
+
+    function saveAll() {
+        const data = {
+            currentHP: document.getElementById('currentHP').innerText,
+            maxHP: document.getElementById('maxHP').innerText
+        };
+        fields.forEach(id => {
+            const el = document.getElementById(id);
+            data[id] = el.type === 'checkbox' ? el.checked : el.value;
+        });
+        localStorage.setItem('severin_mortis_data', JSON.stringify(data));
+    }
+
+    function loadAll() {
+        const saved = localStorage.getItem('severin_mortis_data');
+        if (!saved) return;
+        const data = JSON.parse(saved);
+
+        document.getElementById('currentHP').innerText = data.currentHP || 10;
+        document.getElementById('maxHP').innerText = data.maxHP || 10;
+
+        fields.forEach(id => {
+            const el = document.getElementById(id);
+            if (data[id] !== undefined) {
+                if (el.type === 'checkbox') el.checked = data[id];
+                else el.value = data[id];
+            }
+        });
+    }
+
+    // --- HP TRACKER ---
+    function changeHP(amount) {
+        const currentEl = document.getElementById('currentHP');
+        const max = parseInt(document.getElementById('maxHP').innerText);
+        let val = parseInt(currentEl.innerText) + amount;
+        if (val < 0) val = 0;
+        if (val > max) val = max;
+        currentEl.innerText = val;
+        saveAll();
+    }
+
+    // --- INITIALIZE ---
+    window.onload = loadAll;
+    // Auto-save whenever any input changes
+    document.getElementById('sheet').addEventListener('input', saveAll);
+</script>
+
+</body>
+</html>
