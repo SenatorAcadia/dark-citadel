@@ -137,9 +137,9 @@
             justify-content: center;
         }
         .btn:hover { background: var(--gold-dim); color: #000; }
-        .btn-sm  { width: 24px; height: 24px; font-size: 0.85rem; }
-        .btn-lg  { width: 40px; height: 40px; font-size: 1.1rem; }
-        .btn-wide { padding: 8px 20px; font-size: 0.8rem; letter-spacing: 0.1em; }
+        .btn-sm  { width: 28px; height: 28px; font-size: 1rem; }
+        .btn-lg  { width: 48px; height: 48px; font-size: 1.4rem; }
+        .btn-wide { padding: 10px 24px; font-size: 0.9rem; letter-spacing: 0.1em; }
 
         /* ===== BODY ===== */
         .body {
@@ -172,7 +172,7 @@
 
         .section-title {
             font-family: 'Cinzel', serif;
-            font-size: 0.62rem;
+            font-size: 0.75rem;
             letter-spacing: 0.25em;
             color: var(--gold);
             text-transform: uppercase;
@@ -183,98 +183,104 @@
 
         /* ===== HP ===== */
         .hp-block { text-align: center; }
-        .hp-label { font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--text-dim); margin-bottom:4px; }
+        .hp-label { font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.2em; color:var(--text-dim); margin-bottom:4px; }
         .hp-row { display:flex; align-items:center; justify-content:center; gap:10px; }
-        .hp-number { font-family:'Cinzel',serif; font-size:3rem; font-weight:700; color:var(--red); text-shadow:0 0 20px rgba(224,85,85,0.4); min-width:70px; text-align:center; line-height:1; }
-        .hp-max { font-family:'Cinzel',serif; font-size:0.7rem; color:var(--text-dim); text-align:center; margin-top:2px; }
-        .hp-max input { background:transparent; border:none; border-bottom:1px solid var(--border); color:var(--text-dim); font-family:'Cinzel',serif; font-size:0.7rem; width:28px; text-align:center; }
+        .hp-number { font-family:'Cinzel',serif; font-size:4rem; font-weight:700; color:var(--red); text-shadow:0 0 20px rgba(224,85,85,0.4); min-width:70px; text-align:center; line-height:1; }
+        .hp-max { font-family:'Cinzel',serif; font-size:0.8rem; color:var(--text-dim); text-align:center; margin-top:2px; }
+        .hp-max input { background:transparent; border:none; border-bottom:1px solid var(--border); color:var(--text-dim); font-family:'Cinzel',serif; font-size:0.8rem; width:32px; text-align:center; }
 
         /* ===== STAT BOXES ===== */
         .stat-trio { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:10px; }
         .stat-box { background:rgba(0,0,0,0.3); border:1px solid var(--border); padding:6px 8px; text-align:center; }
         .stat-box.full { grid-column:span 2; }
-        .stat-box label { display:block; font-family:'Cinzel',serif; font-size:0.56rem; letter-spacing:0.18em; color:var(--gold-dim); margin-bottom:3px; }
-        .stat-box input { background:transparent; border:none; color:var(--text); font-family:'Cinzel',serif; font-size:1.1rem; text-align:center; width:100%; }
+        .stat-box label { display:block; font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.18em; color:var(--gold-dim); margin-bottom:3px; }
+        .stat-box input { background:transparent; border:none; color:var(--text); font-family:'Cinzel',serif; font-size:1.4rem; text-align:center; width:100%; }
         input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { -webkit-appearance:none; }
 
         /* ===== TRAITS ===== */
         .traits-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
         .trait-box { background:rgba(0,0,0,0.3); border:1px solid var(--border); padding:6px 8px; display:flex; align-items:center; justify-content:space-between; }
-        .trait-box label { font-family:'Cinzel',serif; font-size:0.62rem; letter-spacing:0.15em; color:var(--gold-dim); }
+        .trait-box label { font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.15em; color:var(--gold-dim); }
         .trait-val { display:flex; align-items:center; gap:3px; }
-        .trait-val input { background:transparent; border:none; color:var(--text); font-family:'Cinzel',serif; font-size:1rem; text-align:center; width:32px; }
+        .trait-val input { background:transparent; border:none; color:var(--text); font-family:'Cinzel',serif; font-size:1.25rem; text-align:center; width:36px; }
 
-        /* ===== ABILITY ROWS (with images!) ===== */
+        /* ===== ABILITY ROWS — 2 per row grid ===== */
+        .abilities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
         .ability-row {
             display: flex;
             gap: 10px;
-            margin-bottom: 8px;
             background: rgba(255,255,255,0.02);
-            padding: 8px;
+            padding: 10px;
             border: 1px solid var(--border);
-            border-left: 2px solid var(--gold-dim);
+            border-left: 3px solid var(--gold-dim);
             align-items: flex-start;
         }
         .ability-row.spell { border-left-color: var(--green-dim); }
 
         .ability-img {
-            width: 56px;
-            height: 56px;
+            width: 52px;
+            height: 52px;
             border-radius: 4px;
             border: 1px solid #333;
             flex-shrink: 0;
             object-fit: cover;
         }
 
-        .ability-info b { font-family:'Cinzel',serif; color:var(--gold); font-size:0.78rem; display:block; margin-bottom:2px; }
-        .ability-info p { font-size:0.8rem; color:#a09888; line-height:1.35; margin:0; }
+        .ability-info b { font-family:'Cinzel',serif; color:var(--gold); font-size:0.85rem; display:block; margin-bottom:3px; }
+        .ability-info p { font-size:0.9rem; color:#a09888; line-height:1.35; margin:0; }
 
-        .ability-used { display:flex; align-items:center; gap:5px; margin-top:4px; }
-        .ability-used input[type="checkbox"] { accent-color:var(--red); width:12px; height:12px; cursor:pointer; }
-        .ability-used label { font-size:0.7rem; color:var(--text-dim); cursor:pointer; }
+        .ability-used { display:flex; align-items:center; gap:5px; margin-top:5px; }
+        .ability-used input[type="checkbox"] { accent-color:var(--red); width:14px; height:14px; cursor:pointer; }
+        .ability-used label { font-size:0.78rem; color:var(--text-dim); cursor:pointer; }
 
         /* ===== SPELL POINTS ===== */
-        .sp-label { font-family:'Cinzel',serif; font-size:0.6rem; letter-spacing:0.2em; color:var(--gold-dim); text-align:center; margin-bottom:6px; }
-        .sp-row { display:flex; align-items:center; justify-content:center; gap:16px; padding:6px 0; }
-        .sp-pip { width:26px; height:26px; border:2px solid var(--green-dim); border-radius:50%; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; }
-        .sp-pip.used { background:var(--green); border-color:var(--green); box-shadow:0 0 8px rgba(74,222,128,0.5); }
-        .sp-pip.used::after { content:'✕'; font-size:0.65rem; color:#000; }
+        .sp-label { font-family:'Cinzel',serif; font-size:0.72rem; letter-spacing:0.2em; color:var(--gold-dim); text-align:center; margin-bottom:6px; }
+        .sp-row { display:flex; align-items:center; justify-content:center; gap:20px; padding:6px 0; }
+        .sp-pip { width:34px; height:34px; border:2px solid var(--green-dim); border-radius:50%; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; justify-content:center; }
+        .sp-pip.used { background:var(--green); border-color:var(--green); box-shadow:0 0 10px rgba(74,222,128,0.5); }
+        .sp-pip.used::after { content:'✕'; font-size:0.8rem; color:#000; }
 
         /* ===== TRACKER ROWS ===== */
-        .tracker-row { display:flex; align-items:center; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border); }
+        .tracker-row { display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); }
         .tracker-row:last-child { border-bottom:none; }
-        .tracker-label { font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.08em; color:var(--gold); }
-        .tracker-label small { display:block; font-size:0.58rem; color:var(--text-dim); font-family:'Crimson Text',serif; letter-spacing:0; margin-top:1px; }
-        .tracker-val { display:flex; align-items:center; gap:5px; }
-        .tracker-val input { background:rgba(0,0,0,0.4); border:1px solid var(--border); color:var(--green); font-family:'Cinzel',serif; font-size:0.95rem; text-align:center; width:44px; padding:3px; }
+        .tracker-label { font-family:'Cinzel',serif; font-size:0.82rem; letter-spacing:0.08em; color:var(--gold); }
+        .tracker-label small { display:block; font-size:0.7rem; color:var(--text-dim); font-family:'Crimson Text',serif; letter-spacing:0; margin-top:1px; }
+        .tracker-val { display:flex; align-items:center; gap:6px; }
+        .tracker-val input { background:rgba(0,0,0,0.4); border:1px solid var(--border); color:var(--green); font-family:'Cinzel',serif; font-size:1.1rem; text-align:center; width:50px; padding:4px; }
 
         /* ===== CONDITIONS ===== */
         .conditions-row { display:flex; gap:8px; margin-bottom:8px; }
-        .condition-pill { flex:1; display:flex; align-items:center; justify-content:center; gap:5px; background:rgba(0,0,0,0.3); border:1px solid var(--border); padding:6px 10px; cursor:pointer; transition:all 0.2s; font-family:'Cinzel',serif; font-size:0.62rem; letter-spacing:0.1em; color:var(--text-dim); }
+        .condition-pill { flex:1; display:flex; align-items:center; justify-content:center; gap:5px; background:rgba(0,0,0,0.3); border:1px solid var(--border); padding:8px 10px; cursor:pointer; transition:all 0.2s; font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.1em; color:var(--text-dim); }
         .condition-pill.active-poison { border-color:#7ec850; color:#7ec850; background:rgba(126,200,80,0.1); box-shadow:0 0 6px rgba(126,200,80,0.2); }
         .condition-pill.active-curse  { border-color:#a855f7; color:#a855f7; background:rgba(168,85,247,0.1); box-shadow:0 0 6px rgba(168,85,247,0.2); }
 
         /* ===== BOON ===== */
-        .boon-block { display:flex; align-items:center; gap:10px; padding:8px; background:rgba(0,0,0,0.2); border:1px solid var(--border); }
-        .boon-gem { width:24px; height:24px; border:2px solid var(--gold-dim); transform:rotate(45deg); cursor:pointer; transition:all 0.2s; flex-shrink:0; }
+        .boon-block { display:flex; align-items:center; gap:12px; padding:10px; background:rgba(0,0,0,0.2); border:1px solid var(--border); }
+        .boon-gem { width:28px; height:28px; border:2px solid var(--gold-dim); transform:rotate(45deg); cursor:pointer; transition:all 0.2s; flex-shrink:0; }
         .boon-gem.active { background:var(--gold); border-color:var(--gold); box-shadow:0 0 10px rgba(201,168,76,0.6); }
-        .boon-desc { font-size:0.75rem; color:var(--text-dim); line-height:1.3; }
+        .boon-desc { font-size:0.85rem; color:var(--text-dim); line-height:1.3; }
 
         /* ===== WOUNDS ===== */
-        .wound-item { display:flex; align-items:center; gap:7px; margin-bottom:5px; }
-        .wound-item input[type="checkbox"] { accent-color:var(--red); width:13px; height:13px; cursor:pointer; flex-shrink:0; }
-        .wound-item input[type="text"] { background:transparent; border:none; border-bottom:1px solid var(--border); color:var(--text-dim); font-family:'Crimson Text',serif; font-size:0.8rem; flex:1; }
+        .wound-item { display:flex; align-items:center; gap:7px; margin-bottom:6px; }
+        .wound-item input[type="checkbox"] { accent-color:var(--red); width:15px; height:15px; cursor:pointer; flex-shrink:0; }
+        .wound-item input[type="text"] { background:transparent; border:none; border-bottom:1px solid var(--border); color:var(--text-dim); font-family:'Crimson Text',serif; font-size:0.9rem; flex:1; }
 
         /* ===== HOLDINGS ===== */
         .holdings-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
         .holding-box { background:rgba(0,0,0,0.3); border:1px solid var(--border); padding:7px 8px; text-align:center; }
         .holding-box.full { grid-column:span 2; }
-        .holding-box label { display:block; font-family:'Cinzel',serif; font-size:0.56rem; letter-spacing:0.18em; color:var(--gold-dim); margin-bottom:5px; }
+        .holding-box label { display:block; font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.18em; color:var(--gold-dim); margin-bottom:5px; }
         .num-row { display:flex; align-items:center; justify-content:center; gap:5px; }
-        .num-row input { background:transparent; border:none; color:var(--text); font-family:'Cinzel',serif; font-size:1.1rem; text-align:center; width:42px; }
+        .num-row input { background:transparent; border:none; color:var(--text); font-family:'Cinzel',serif; font-size:1.3rem; text-align:center; width:48px; }
 
         /* ===== TEXTAREA ===== */
-        textarea { width:100%; background:rgba(0,0,0,0.3); border:1px solid var(--border); color:var(--text); font-family:'Crimson Text',serif; font-size:0.85rem; padding:8px; resize:none; line-height:1.5; }
+        textarea { width:100%; background:rgba(0,0,0,0.3); border:1px solid var(--border); color:var(--text); font-family:'Crimson Text',serif; font-size:1rem; padding:8px; resize:none; line-height:1.5; }
         textarea::placeholder { color:var(--text-dim); }
 
         /* ===== FOOTER ===== */
@@ -367,6 +373,7 @@
             <div class="section">
                 <div class="section-title">Abilities & Spells</div>
 
+                <div class="abilities-grid">
                 <div class="ability-row">
                     <img src="https://raw.githubusercontent.com/SenatorAcadia/dark-citadel/main/arcane-adept.png" class="ability-img" onerror="this.style.display='none'">
                     <div class="ability-info">
@@ -378,7 +385,7 @@
                 <div class="ability-row">
                     <img src="https://raw.githubusercontent.com/SenatorAcadia/dark-citadel/main/arcane-knowledge.png" class="ability-img" onerror="this.style.display='none'">
                     <div class="ability-info">
-                        <b>Arcane Knowledge <span style="font-weight:400;color:var(--text-dim);font-size:0.7rem;">(Once per Page)</span></b>
+                        <b>Arcane Knowledge <span style="font-weight:400;color:var(--text-dim);font-size:0.75rem;">(Once per Page)</span></b>
                         <p>Reroll any D20 + Intellect roll and take the new result.</p>
                         <div class="ability-used">
                             <input type="checkbox" id="ak-used">
@@ -390,7 +397,7 @@
                 <div class="ability-row spell">
                     <img src="https://raw.githubusercontent.com/SenatorAcadia/dark-citadel/main/blight-touch.png" class="ability-img" onerror="this.style.display='none'">
                     <div class="ability-info">
-                        <b>Blight Touch <span style="font-weight:400;color:var(--green-dim);font-size:0.7rem;">(1 Spell Point)</span></b>
+                        <b>Blight Touch <span style="font-weight:400;color:var(--green-dim);font-size:0.75rem;">(1 SP)</span></b>
                         <p>Add D4 to all Attack rolls for the Page.</p>
                         <div class="ability-used">
                             <input type="checkbox" id="bt-active" style="accent-color:var(--green);">
@@ -402,7 +409,7 @@
                 <div class="ability-row spell">
                     <img src="https://raw.githubusercontent.com/SenatorAcadia/dark-citadel/main/bone-shield.png" class="ability-img" onerror="this.style.display='none'">
                     <div class="ability-info">
-                        <b>Bone Shield <span style="font-weight:400;color:var(--green-dim);font-size:0.7rem;">(1 Spell Point)</span></b>
+                        <b>Bone Shield <span style="font-weight:400;color:var(--green-dim);font-size:0.75rem;">(1 SP)</span></b>
                         <p>Add D4 to all Defense rolls for the Page.</p>
                         <div class="ability-used">
                             <input type="checkbox" id="bs-active" style="accent-color:var(--green);">
@@ -410,6 +417,7 @@
                         </div>
                     </div>
                 </div>
+                </div><!-- end abilities-grid -->
 
                 <div style="margin-top:10px;text-align:center;">
                     <div class="sp-label">SPELL POINTS — reset on Rest</div>
